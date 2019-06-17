@@ -79,7 +79,32 @@
           font-weight: bold;
           border-radius: 20px;
           font-size: .85rem;
+          transition: border .5s, padding .4s;
+          position: relative;
+
+          &:before {
+            content: '';
+            position:absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            border: 2px solid $colGreen;
+            background: linear-gradient($colGreen, #3fcc7c);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity .7s;
+          } 
           
+          &:hover {
+            border: 2px solid transparent;
+            // padding: 0px 18px;
+
+            &:before {
+              opacity: 1;
+            }
+            // background: linear-gradient($colGreen, #3fcc7c);
+          }
         }
 
         .dropdown-toggle::after {
@@ -106,6 +131,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  padding-bottom: 400px;
 }
 
 *,
