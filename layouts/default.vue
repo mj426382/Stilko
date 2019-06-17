@@ -11,16 +11,18 @@
       <b-navbar-nav class="ml-auto">
 
         <b-navbar-nav>
-          <b-nav-item href="#">O nas</b-nav-item>
-          <b-nav-item href="#">Oferta</b-nav-item>
+          <b-nav-item href="#home" v-scroll-to="'#home'">Home</b-nav-item>
+          <b-nav-item href="#about" v-scroll-to="'#about'">O nas</b-nav-item>
+          <b-nav-item href="#offer" v-scroll-to="'#offer'">Oferta</b-nav-item>
+          <b-nav-item href="#products" v-scroll-to="'#products'">Produkty</b-nav-item>
         </b-navbar-nav>
 
-        <b-nav-item-dropdown right>
+        <!-- <b-nav-item-dropdown right> -->
           <!-- Using 'button-content' slot -->
-          <template slot="button-content">Produkty</template>
+          <!-- <template slot="button-content">Produkty</template>
           <b-dropdown-item href="#">Kotwy 1</b-dropdown-item>
           <b-dropdown-item href="#">Kotwy 2</b-dropdown-item>
-        </b-nav-item-dropdown>
+        </b-nav-item-dropdown> -->
         <b-nav-item class="special-link" href="#">Kontakt</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
