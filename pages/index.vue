@@ -1,7 +1,6 @@
 <template>
   <div>
 
-
     <section class="container-margin intro-jumbotron">
       <b-row>
         <b-col xs12 sm6>
@@ -16,9 +15,32 @@
       </b-row>
     </section>
 
+    <section class="container-margin about">
+      <nuxt-link 
+        class="section-header"
+        to="#about" 
+        id="about">O nas</nuxt-link>
+      <b-row>
+        <b-col class="left-cover" xs12 sm6 md4>
+          <!-- hidden on mobile -->
+        </b-col>
+        <b-col class="content" xs12 sm6 md4>
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </b-col>
+        <b-col class="right-cover" xs12 sm6 md4>
+          <!-- hidden on sm -->
+        </b-col>
+      </b-row>
+    </section>
 
     <section class="container-margin products">
-      <nuxt-link to="#products" id="products">Produkty</nuxt-link>
+      <nuxt-link 
+        to="#products" 
+        id="products"
+        class="section-header">Produkty</nuxt-link>
       <b-row>
         <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
           <Product 
@@ -72,6 +94,26 @@ export default {
 
 <style lang="scss">
 
+.about {
+  .row {
+    height: 600px;
+
+    .col {
+      height: 100%;
+    }
+
+    .left-cover {
+      background: url('https://images.unsplash.com/photo-1487695652027-48e475bfa86f?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80');
+
+    }
+
+    .right-cover {
+      background: url('https://images.unsplash.com/photo-1478025101087-7f1ce4c83156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+
+    }
+  }
+}
+
 .intro-jumbotron {
   height: calc(100vh - #{$offsetTop});
 
@@ -105,45 +147,5 @@ export default {
   }
 }
 
-.products {
-  #products {
-
-    font-weight: bold;
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    display: block;
-    position: relative;
-
-    &:before {
-      content: '#';
-      transition: color .3s;
-      padding-right: 10px;
-      color: $colGreen;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-width: 0 0 25px 25px;
-      border-color: transparent transparent $colGreen transparent;
-      right: 0;
-      bottom: 0;
-      transition: border-color .3s;
-
-    }
-
-    &:hover {
-      &:before {
-        color: $colBlue;
-      }
-      &:after {
-        border-color: transparent transparent $colBlue transparent;
-      }
-    }
-  }
-}
 
 </style>
