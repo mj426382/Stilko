@@ -1,9 +1,9 @@
 <template>
   <div>
 
-    <section id="home" class="padding--y container-margin intro-jumbotron">
+    <section id="home" class="container-margin intro-jumbotron">
       <b-row>
-        <b-col xs12 sm6>
+        <b-col xs12 sm7 lg6>
           <b-jumbotron lead="Nowa generacja kotw do okien PCV - motażowe okienne">
             <template slot="header">
               Kotwy do okien.
@@ -11,7 +11,7 @@
             <b-button class="btn-green" href="#">Dowiedz sie więcej</b-button>
           </b-jumbotron>
         </b-col>
-        <b-col class="kotwy" xs12 sm6/>
+        <b-col class="kotwy" xs12 sm5 lg6/>
       </b-row>
     </section>
 
@@ -70,6 +70,47 @@
       </b-row>
     </section>
 
+    <section class="contact">
+      <b-row>
+        <b-col class="contact" md6>
+          <div class="contact-form">
+            <h2 class="contact--header">Kontakt</h2>
+            <p class="contact--description">Napisz do nas maila</p>
+            <div class="contact--form">
+              <input
+                v-model.trim="formName"
+                type="text" 
+                class="contact--input" 
+                placeholder="Imie i nazwisko"/>
+              <input
+                v-model.trim="formEmail"
+                type="email" 
+                class="contact--input" 
+                placeholder="Adres email"/>
+              <textarea
+                v-model.trim="formMessage"
+                class="contact--input" 
+                placeholder="Wiadomość"/>
+              <button class="contact--submit">Wyślij</button>
+            </div>
+          </div>
+          <b-row>
+            <b-col xs6>
+              <i>Icon</i>
+              <a href="tel: +48 124 456 789">+48 124 456 789</a>
+            </b-col>
+            <b-col xs6>
+              <i>Icon</i>
+              <a href="tel: +48 124 456 789">+48 124 456 789</a>
+            </b-col>
+          </b-row>
+        </b-col>
+        <b-col class="map" md6>
+          <img src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png"/>
+        </b-col>
+      </b-row>
+    </section>
+
   </div>
 </template>
 
@@ -84,6 +125,9 @@ export default {
   },
   data () {
     return {
+      formName: '',
+      formEmail: '',
+      formMessage: '',
       items: [
         {
           name: "Kotwa do okna",
@@ -114,9 +158,11 @@ export default {
 <style lang="scss">
 
 .about {
+
   .row {
     height: 600px;
     overflow: hidden;
+    display: flex;
 
     .col {
       height: 100%;
@@ -140,16 +186,25 @@ export default {
     .right-cover {
       margin-left: 4rem;
       background: url('https://images.unsplash.com/photo-1478025101087-7f1ce4c83156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
-
     }
   }
 }
 
 .intro-jumbotron {
+  // min-height: calc(100vh - #{$offsetTop});
+  height: 400px;
   height: calc(100vh - #{$offsetTop});
+  display: flex;
+  justify-content: center;
 
   .row {
     height: 100%;
+    width: 100%;
+
+    // @media (min-width: 765px) {
+    //   display: flex;
+    // }
+
     .col {
       display: flex;
       align-items: center;
@@ -158,19 +213,26 @@ export default {
         background: transparent;
 
         .display-3 {
-          font-weight: bold;
+          font-weight: 700;
+          font-size: 2.9rem;
         }
 
         .lead {
-          font-size: 1.67rem;
+          font-size: 1.23rem;
+          // font-size: 1.67rem;
         }
       }
 
       &.kotwy {
+        display: none;
         background: url('~assets/kotwy.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center right;
+
+        @media (min-width: 765px) {
+          display: block;
+        }
       }
 
     }
@@ -182,5 +244,18 @@ export default {
   padding-bottom: 6rem;
 }
 
+.contact {
+  .row {
+    display: flex;
+
+    > div {
+      width: 50%;
+    }
+  }
+}
+
+.products { 
+  padding-bottom: 6rem;
+}
 
 </style>

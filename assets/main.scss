@@ -1,5 +1,9 @@
 .container-margin {
-  padding: 0 $marginX;
+  padding: 0 4%;
+  
+  @media (min-width: 765px) {
+    padding: 0 $marginX;
+  }
 } 
 
 .btn-green {
