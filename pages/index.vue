@@ -2,16 +2,32 @@
   <div>
 
     <section id="home" class="container-margin intro-jumbotron">
-      <b-row>
-        <b-col xs12 sm7 lg6>
-          <b-jumbotron lead="Nowa generacja kotw do okien PCV - motażowe okienne">
-            <template slot="header">
-              Kotwy do okien.
-            </template>
-            <b-button class="btn-green" href="#">Dowiedz sie więcej</b-button>
-          </b-jumbotron>
+      <b-row class="header-bg">
+        <b-col xs12>
+          <div class="logo--wrapper" href="/">
+            <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo"/>
+            <div>
+              <span class="title">STILKO</span>
+              <p class="logo__description">i wszystko w metalu</p>
+            </div>
+          </div>
         </b-col>
-        <b-col class="kotwy" xs12 sm5 lg6/>
+      </b-row>
+    </section>
+
+    <section class="container-margin products">
+      <nuxt-link 
+        to="#products" 
+        id="products"
+        class="section-header">Produkty</nuxt-link>
+      <b-row>
+        <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
+          <Product 
+            :name="item.name" 
+            :photo="item.photo"
+            :description="item.description"
+          />
+        </b-col>
       </b-row>
     </section>
 
@@ -37,43 +53,10 @@
       </b-row>
     </section>
 
-    <section class="padding--y container-margin offer">
-      <nuxt-link 
-        class="section-header"
-        to="#offer" 
-        id="offer">Oferta</nuxt-link>
-      <b-row>
-        <b-col class="content flex" xs12 sm6 md4>
-          <div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          </div>
-        </b-col>
-      </b-row>
-    </section>
-
-    <section class="container-margin products">
-      <nuxt-link 
-        to="#products" 
-        id="products"
-        class="section-header">Produkty</nuxt-link>
-      <b-row>
-        <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
-          <Product 
-            :name="item.name" 
-            :photo="item.photo"
-            :description="item.description"
-          />
-        </b-col>
-      </b-row>
-    </section>
-
-    <section class="contact">
+    <section class="contact" id="contact">
       <b-row>
         <b-col class="contact" md6>
-          <div class="contact-form">
+          <div class="contact-form--wrapper">
             <h2 class="contact--header">Kontakt</h2>
             <p class="contact--description">Napisz do nas maila</p>
             <div class="contact--form">
@@ -90,18 +73,33 @@
               <textarea
                 v-model.trim="formMessage"
                 class="contact--input" 
+                rows="5"
                 placeholder="Wiadomość"/>
               <button class="contact--submit">Wyślij</button>
             </div>
           </div>
-          <b-row>
-            <b-col xs6>
-              <i>Icon</i>
-              <a href="tel: +48 124 456 789">+48 124 456 789</a>
+          <b-row class="tile--wrapper">
+            <b-col class="tile" xs6>
+              <a href="tel: +48 124 456 789">
+                <div class="icon">
+                  <img 
+                    src="~/assets/ph.svg"
+                    alt="Telefon"
+                  />
+                </div>
+                <span>+48 124 456 789</span>
+              </a>
             </b-col>
-            <b-col xs6>
-              <i>Icon</i>
-              <a href="tel: +48 124 456 789">+48 124 456 789</a>
+            <b-col class="tile" xs6>
+              <a>
+                <div class="icon">
+                  <img 
+                    src="~/assets/localization.svg"
+                    alt="Lokalizacja"
+                  />
+                </div>
+                <span>Bielicha XYZ, Radom, Polska</span>
+              </a>
             </b-col>
           </b-row>
         </b-col>
@@ -130,12 +128,12 @@ export default {
       formMessage: '',
       items: [
         {
-          name: "Kotwa do okna",
+          name: "Akcesoria do okien",
           description: "Idealna do okien",
           photo: 'assets/kotwy.png'
         },
         {
-          name: "Kotwa do drewna",
+          name: "Akcesoria do mebli",
           description: "Idealna do okien",
           photo: '~/assets/kotwy.png'
         },
@@ -145,7 +143,7 @@ export default {
           photo: '~/assets/kotwy.png'
         },
         {
-          name: "Kotwa do wody",
+          name: "Inne",
           description: "Idealna do okien",
           photo: '~/assets/kotwy.png'
         }
@@ -156,6 +154,137 @@ export default {
 </script>
 
 <style lang="scss">
+
+.logo {
+    width: 30px;
+    height: 30px;
+    
+
+    &__description {
+      font-size: .9rem;
+      margin: 0;
+      color: #666;
+      margin-top: -9px;
+      text-transform: capitalize;
+    }
+
+    &--wrapper {
+      display: flex;
+      align-items: center;
+
+      .logo {
+        width: 150px;
+        height: 150px;
+        margin-right: 25px;
+      }
+
+      > div {
+        margin-left: 15px;
+
+        .title {
+          font-size: 10rem;
+          font-weight: bold;
+          cursor: default;
+          color:#000;
+        }
+
+        .logo__description {
+          cursor: default;
+          margin-top: -60px;
+          font-size: 3rem;
+          letter-spacing: 6px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+section.contact {
+  > .row {
+    max-width: 100%;
+    
+    > .contact {
+      padding: 2rem;
+    }
+  }
+}
+
+.tile {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &--wrapper {
+    padding-top: 30px;
+  }
+
+  span {
+    font-size: 1.3rem;
+  }
+
+  .icon {
+    display:flex;
+    justify-content: center;
+    padding-bottom: 10px;
+
+    img {
+      height: 100px;
+    }
+
+    + a {
+      display: block;
+      width: 100%;
+    }
+
+  }
+}
+
+.contact {
+
+  .map {
+    overflow: hidden;
+  }
+  .contact-form--wrapper {
+
+    .contact--header, .contact--description {
+      text-align: center;
+    }
+
+    .contact--header {
+      font-weight: 700;
+    }
+
+    .contact--description {
+      letter-spacing: 1px;
+    }
+
+    .contact--form {
+      padding: 0 4.3rem;
+
+      .contact--input {
+        width: 100%;
+        margin: .6rem 0;
+        text-align: center;
+        padding: 12px 0;
+
+        background: rgba(0,0,0,.13);
+        border: 0;
+      }
+    }
+
+    .contact--submit {
+      width: 100%;
+      padding: 7px 0;
+      background: #222;
+      color: #eee;
+      text-transform: uppercase;
+      border: 0;
+      position: relative;
+      overflow:hidden;
+    }
+  }
+}
 
 .about {
 
@@ -191,11 +320,13 @@ export default {
 }
 
 .intro-jumbotron {
-  // min-height: calc(100vh - #{$offsetTop});
-  height: 400px;
-  height: calc(100vh - #{$offsetTop});
+
+  min-height: 400px;
+  padding-top: $offsetTop;
+  height: calc(45vh - #{$offsetTop});
   display: flex;
   justify-content: center;
+  background: linear-gradient(#ccc, #fff);
 
   .row {
     height: 100%;

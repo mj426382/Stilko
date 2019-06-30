@@ -1,9 +1,16 @@
 <template>
   <div>
-    <b-navbar class="navbar" toggleable="lg">
-    <b-navbar-brand href="#">STILKO</b-navbar-brand>
-
+    <b-navbar class="navbar" toggleable="lg" :class="{'white-bg': whiteBackgroundNav}">
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+    <b-navbar-brand v-scroll-to="'#home'" class="brand" :class="{'showed': whiteBackgroundNav}">
+      <div class="logo--wrapper-special" href="/">
+        <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo"/>
+        <div>
+          <span class="title">STILKO</span>
+          <p class="logo__description">i wszystko w metalu</p>
+        </div>
+      </div>
+    </b-navbar-brand>
 
     <b-collapse id="nav-collapse" is-nav>
 
@@ -12,9 +19,8 @@
 
         <b-navbar-nav>
           <b-nav-item href="#home" v-scroll-to="'#home'">Home</b-nav-item>
+          <b-nav-item href="#products" v-scroll-to="'#products'">Produkty</b-nav-item>          
           <b-nav-item href="#about" v-scroll-to="'#about'">O nas</b-nav-item>
-          <b-nav-item href="#offer" v-scroll-to="'#offer'">Oferta</b-nav-item>
-          <b-nav-item href="#products" v-scroll-to="'#products'">Produkty</b-nav-item>
         </b-navbar-nav>
 
         <!-- <b-nav-item-dropdown right> -->
@@ -23,7 +29,7 @@
           <b-dropdown-item href="#">Kotwy 1</b-dropdown-item>
           <b-dropdown-item href="#">Kotwy 2</b-dropdown-item>
         </b-nav-item-dropdown> -->
-        <b-nav-item class="special-link" href="#">Kontakt</b-nav-item>
+        <b-nav-item class="special-link" v-scroll-to="'#contact'" href="#contact">Kontakt</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -33,26 +39,79 @@
   </div>
 </template>
 
+<script>
+
+  const checkScroll = () => {
+    return window.scrollY >= 100;
+  }
+
+  export default {
+    data () {
+      return {
+        whiteBackgroundNav: false
+      }
+    },
+    mounted () {
+      this.whiteBackgroundNav = checkScroll()
+      window.addEventListener('scroll', () => {
+        this.whiteBackgroundNav = checkScroll()
+      }, {
+        passive: true
+      })
+    }
+  }
+
+</script>
+
 <style lang="scss">
 
+  .brand {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .5s;
+    cursor: pointer;
+
+    &.showed {
+      opacity: 1;
+      pointer-events: initial;
+    }
+  }
+
+  .logo--wrapper-special {
+     display: flex;
+     align-items: center;
+
+     .logo {
+       margin-right: 15px;
+     }
+  }
+
   .navbar{
-    padding: 10px $marginX;
+    padding: 15px $marginX;
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    background: #fff;
-    // border-bottom: 1px solid #ccc;
     z-index: 10;
+
+    transition: background-color .6s, box-shadow .6s;
+    will-change: background-color, box-shadow;
 
     .navbar-brand {
       font-family: 'Ubuntu';
     }
+
+    &.white-bg {
+      background: #fff;
+      -webkit-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+      -moz-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+      box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+    }
   }
 
-  .main-content {
-    margin-top: $offsetTop;
-  }
+  // .main-content {
+  //   margin-top: $offsetTop;
+  // }
 
   .navbar-brand {
     font-weight: bold;
@@ -74,8 +133,11 @@
         font-family: 'Ubuntu';
         
         padding: 0 15px;
+        letter-spacing: 2px;
+
         &.special-link {
           border: 2px solid $colGreen;
+          letter-spacing: initial;
           margin-left: 5px;
           text-transform: uppercase;
           font-weight: bold;
@@ -83,6 +145,7 @@
           font-size: .85rem;
           transition: border .5s, padding .4s;
           position: relative;
+          color: #fff;
 
           &:before {
             content: '';
@@ -91,15 +154,22 @@
             width: 100%;
             height: 100%;
             border-radius: 20px;
-            border: 2px solid $colGreen;
+            
             background: linear-gradient($colGreen, #3fcc7c);
             z-index: -1;
-            opacity: 0;
+            opacity: 1;
             transition: opacity .7s;
           } 
+
+          a {
+            transition: .3s;
+          }
           
           &:hover {
             border: 2px solid transparent;
+            a {
+              color: #fff;
+            }
             // padding: 0px 18px;
 
             &:before {
