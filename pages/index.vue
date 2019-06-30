@@ -22,10 +22,11 @@
         class="section-header">Produkty</nuxt-link>
       <b-row>
         <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
-          <Product 
+          <ProductWrapper 
             :name="item.name" 
             :photo="item.photo"
             :description="item.description"
+            :subproducts="item.subproducts"
           />
         </b-col>
       </b-row>
@@ -42,8 +43,9 @@
         </b-col>
         <b-col class="content flex" xs12 sm6 md4>
           <div>
-            <h3 class="text--center">Nagłówek</h3>
+            <h3>O nas</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <h3>Oferta</h3>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
         </b-col>
@@ -57,7 +59,7 @@
       <b-row>
         <b-col class="contact" md6>
           <div class="contact-form--wrapper">
-            <h2 class="contact--header">Kontakt</h2>
+            <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
             <p class="contact--description">Napisz do nas maila</p>
             <div class="contact--form">
               <input
@@ -114,12 +116,12 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
-import Product from '~/components/Product.vue'
+import ProductWrapper from '~/components/ProductWrapper.vue'
 
 export default {
   components: {
     Logo,
-    Product
+    ProductWrapper
   },
   data () {
     return {
@@ -130,7 +132,34 @@ export default {
         {
           name: "Akcesoria do okien",
           description: "Idealna do okien",
-          photo: 'assets/kotwy.png'
+          photo: 'assets/kotwy.png',
+          subproducts: [
+            {
+              name: "Kotwy do montażu PCV",
+              description: "Idealna do okien",
+              photo: 'assets/kotwy.png'
+            },
+            {
+              name: "Kotwy do okien",
+              description: "Idealna do okien",
+              photo: 'assets/kotwy.png'
+            },
+            {
+              name: "Kotwy do drewna",
+              description: "Idealna do okien",
+              photo: 'assets/kotwy.png'
+            },
+            {
+              name: "Kołki montażowe",
+              description: "Idealna do okien",
+              photo: 'assets/kotwy.png'
+            },
+            {
+              name: "Dyble",
+              description: "Idealna do okien",
+              photo: 'assets/kotwy.png'
+            }
+          ]
         },
         {
           name: "Akcesoria do mebli",

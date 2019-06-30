@@ -1,14 +1,16 @@
 <template>
-  <nuxt-link to="/abc" class="product">
+  <div class="product" v-bind="$attrs" v-on="$listeners">
     <div class="photo">
       <img :src="photo" :alt="name"/>
     </div>
     <h4 class="name">{{name}}</h4>
     <p class="description">{{description}}</p>
-  </nuxt-link>
+  </div>
 </template>
 
 <script>
+import Product from '~/components/Product.vue'
+
 export default {
   props: {
     photo: {
@@ -22,7 +24,13 @@ export default {
     description: {
       type: String,
       required: true
+    },
+    subproducts: {
+      type: Array
     }
+  },
+  components: {
+    Product
   }
 }
 </script>
