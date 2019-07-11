@@ -1,11 +1,20 @@
 import pkg from './package'
 
+const routerBase =
+  process.env.DEPLOY_ENV === 'GH_PAGES'
+    ? {
+        router: {
+          base: '/stilko/'
+        }
+      }
+    : {}
+
 export default {
   mode: 'spa',
 
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   head: {
     title: pkg.name,
     meta: [
@@ -15,32 +24,34 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { href: 'https://fonts.googleapis.com/css?family=Roboto:400,700|Ubuntu:400,700&display=swap', rel: 'stylesheet' }
+      {
+        href:
+          'https://fonts.googleapis.com/css?family=Roboto:400,700|Ubuntu:400,700&display=swap',
+        rel: 'stylesheet'
+      }
     ]
   },
 
+  ...routerBase,
+
   /*
-  ** Customize the progress-bar color
-  */
+   ** Customize the progress-bar color
+   */
   loading: { color: '#fff' },
 
   /*
-  ** Global CSS
-  */
-  css: [
-    '~/assets/main.scss'
-  ],
+   ** Global CSS
+   */
+  css: ['~/assets/main.scss'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [
-    { src: '~/plugins/vue-scrollto', mode: 'client' }
-  ],
+   ** Plugins to load before mounting the App
+   */
+  plugins: [{ src: '~/plugins/vue-scrollto', mode: 'client' }],
 
   /*
-  ** Nuxt.js modules
-  */
+   ** Nuxt.js modules
+   */
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
@@ -49,19 +60,16 @@ export default {
   ],
 
   styleResources: {
-    scss: [
-        '~/assets/_variables.scss'
-    ]
+    scss: ['~/assets/_variables.scss']
   },
 
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-    }
+     ** You can extend webpack config here
+     */
+    extend(config, ctx) {}
   }
 }
