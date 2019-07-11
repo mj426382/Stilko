@@ -1,11 +1,10 @@
 <template>
   <div>
-
     <section id="home" class="container-margin intro-jumbotron">
       <b-row class="header-bg">
         <b-col xs12>
           <div class="logo--wrapper" href="/">
-            <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo"/>
+            <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo" />
             <div>
               <span class="title">STILKO</span>
               <p class="logo__description">i wszystko w metalu</p>
@@ -16,14 +15,11 @@
     </section>
 
     <section class="container-margin products">
-      <nuxt-link 
-        to="#products" 
-        id="products"
-        class="section-header">Produkty</nuxt-link>
+      <nuxt-link to="#products" id="products" class="section-header">Produkty</nuxt-link>
       <b-row>
         <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
-          <ProductWrapper 
-            :name="item.name" 
+          <ProductWrapper
+            :name="item.name"
             :photo="item.photo"
             :description="item.description"
             :subproducts="item.subproducts"
@@ -33,20 +29,14 @@
     </section>
 
     <section class="padding--y container-margin about">
-      <nuxt-link 
-        class="section-header"
-        to="#about" 
-        id="about">O nas</nuxt-link>
+      <nuxt-link class="section-header" to="#about" id="about">O nas</nuxt-link>
       <b-row>
         <b-col class="left-cover" xs12 sm6 md4>
           <!-- hidden on mobile -->
         </b-col>
         <b-col class="content flex" xs12 sm6 md4>
           <div>
-            <h3>O nas</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-            <h3>Oferta</h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p>Produkujemy kotwy montażowe do okien i drzwi PCV, drewnianych oraz aluminiowych. Kotwy wykonane są z blachy ocynkowanej o grubości 1,25 mm lub 1,50 mm. Posiadamy kotwy montażowe do wszystkich obecnych na rynku profili PCV, jak również do profili aluminiowych. Do montażu okien i drzwi drewnianych oferujemy kotwy wbijane. Wykonujemy kotwy pod indywidualne zamówienie klienta.</p>
           </div>
         </b-col>
         <b-col class="right-cover" xs12 sm6 md4>
@@ -64,19 +54,22 @@
             <div class="contact--form">
               <input
                 v-model.trim="formName"
-                type="text" 
-                class="contact--input" 
-                placeholder="Imie i nazwisko"/>
+                type="text"
+                class="contact--input"
+                placeholder="Imie i nazwisko"
+              />
               <input
                 v-model.trim="formEmail"
-                type="email" 
-                class="contact--input" 
-                placeholder="Adres email"/>
+                type="email"
+                class="contact--input"
+                placeholder="Adres email"
+              />
               <textarea
                 v-model.trim="formMessage"
-                class="contact--input" 
+                class="contact--input"
                 rows="5"
-                placeholder="Wiadomość"/>
+                placeholder="Wiadomość"
+              />
               <button class="contact--submit">Wyślij</button>
             </div>
           </div>
@@ -84,10 +77,7 @@
             <b-col class="tile" xs6>
               <a href="tel: +48 124 456 789">
                 <div class="icon">
-                  <img 
-                    src="~/assets/ph.svg"
-                    alt="Telefon"
-                  />
+                  <img src="~/assets/ph.svg" alt="Telefon" />
                 </div>
                 <span>+48 124 456 789</span>
               </a>
@@ -95,10 +85,7 @@
             <b-col class="tile" xs6>
               <a>
                 <div class="icon">
-                  <img 
-                    src="~/assets/localization.svg"
-                    alt="Lokalizacja"
-                  />
+                  <img src="~/assets/localization.svg" alt="Lokalizacja" />
                 </div>
                 <span>Bielicha XYZ, Radom, Polska</span>
               </a>
@@ -106,11 +93,10 @@
           </b-row>
         </b-col>
         <b-col class="map" md6>
-          <img src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png"/>
+          <img src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png" />
         </b-col>
       </b-row>
     </section>
-
   </div>
 </template>
 
@@ -123,58 +109,48 @@ export default {
     Logo,
     ProductWrapper
   },
-  data () {
+  data() {
     return {
       formName: '',
       formEmail: '',
       formMessage: '',
       items: [
         {
-          name: "Akcesoria do okien",
-          description: "Idealna do okien",
-          photo: 'assets/kotwy.png',
+          name: 'Akcesoria do okien',
+          description: 'Idealna do okien',
+          photo: '/kotwy.png',
           subproducts: [
             {
-              name: "Kotwy do montażu PCV",
-              description: "Idealna do okien",
-              photo: 'assets/kotwy.png'
+              name: 'Kotwy do montażu PCV',
+              description: 'Idealna do okien',
+              photo: '/kotwy.png'
             },
             {
-              name: "Kotwy do okien",
-              description: "Idealna do okien",
-              photo: 'assets/kotwy.png'
+              name: 'Kotwy do okien',
+              description: 'Idealna do okien',
+              photo: '/kotwy.png'
             },
             {
-              name: "Kotwy do drewna",
-              description: "Idealna do okien",
-              photo: 'assets/kotwy.png'
-            },
-            {
-              name: "Kołki montażowe",
-              description: "Idealna do okien",
-              photo: 'assets/kotwy.png'
-            },
-            {
-              name: "Dyble",
-              description: "Idealna do okien",
-              photo: 'assets/kotwy.png'
+              name: 'Kotwy do drewna',
+              description: 'Idealna do okien',
+              photo: '/kotwy.png'
             }
           ]
         },
         {
-          name: "Akcesoria do mebli",
-          description: "Idealna do okien",
-          photo: '~/assets/kotwy.png'
+          name: 'Kołki montażowe',
+          description: 'Idealna do okien',
+          photo: '/kolki.png'
         },
         {
-          name: "Kotwa do metalu",
-          description: "Idealna do okien",
-          photo: '~/assets/kotwy.png'
+          name: 'Dyble',
+          description: 'Idealna do okien',
+          photo: '/kotwy.png'
         },
         {
-          name: "Inne",
-          description: "Idealna do okien",
-          photo: '~/assets/kotwy.png'
+          name: 'Akcesoria do mebli',
+          description: 'Idealna do okien',
+          photo: '/kotwy.png'
         }
       ]
     }
@@ -183,55 +159,53 @@ export default {
 </script>
 
 <style lang="scss">
-
 .logo {
-    width: 30px;
-    height: 30px;
-    
+  width: 30px;
+  height: 30px;
 
-    &__description {
-      font-size: .9rem;
-      margin: 0;
-      color: #666;
-      margin-top: -9px;
-      text-transform: capitalize;
+  &__description {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #666;
+    margin-top: -9px;
+    text-transform: capitalize;
+  }
+
+  &--wrapper {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      width: 150px;
+      height: 150px;
+      margin-right: 25px;
     }
 
-    &--wrapper {
-      display: flex;
-      align-items: center;
+    > div {
+      margin-left: 15px;
 
-      .logo {
-        width: 150px;
-        height: 150px;
-        margin-right: 25px;
+      .title {
+        font-size: 10rem;
+        font-weight: bold;
+        cursor: default;
+        color: #000;
       }
 
-      > div {
-        margin-left: 15px;
-
-        .title {
-          font-size: 10rem;
-          font-weight: bold;
-          cursor: default;
-          color:#000;
-        }
-
-        .logo__description {
-          cursor: default;
-          margin-top: -60px;
-          font-size: 3rem;
-          letter-spacing: 6px;
-          text-transform: uppercase;
-        }
+      .logo__description {
+        cursor: default;
+        margin-top: -60px;
+        font-size: 3rem;
+        letter-spacing: 6px;
+        text-transform: uppercase;
       }
     }
   }
+}
 
 section.contact {
   > .row {
     max-width: 100%;
-    
+
     > .contact {
       padding: 2rem;
     }
@@ -253,7 +227,7 @@ section.contact {
   }
 
   .icon {
-    display:flex;
+    display: flex;
     justify-content: center;
     padding-bottom: 10px;
 
@@ -265,18 +239,16 @@ section.contact {
       display: block;
       width: 100%;
     }
-
   }
 }
 
 .contact {
-
   .map {
     overflow: hidden;
   }
   .contact-form--wrapper {
-
-    .contact--header, .contact--description {
+    .contact--header,
+    .contact--description {
       text-align: center;
     }
 
@@ -293,11 +265,11 @@ section.contact {
 
       .contact--input {
         width: 100%;
-        margin: .6rem 0;
+        margin: 0.6rem 0;
         text-align: center;
         padding: 12px 0;
 
-        background: rgba(0,0,0,.13);
+        background: rgba(0, 0, 0, 0.13);
         border: 0;
       }
     }
@@ -310,13 +282,12 @@ section.contact {
       text-transform: uppercase;
       border: 0;
       position: relative;
-      overflow:hidden;
+      overflow: hidden;
     }
   }
 }
 
 .about {
-
   .row {
     height: 600px;
     overflow: hidden;
@@ -329,6 +300,7 @@ section.contact {
     .content {
       flex-wrap: wrap;
       align-items: center;
+      text-align: center;
 
       h3 {
         font-weight: bold;
@@ -349,7 +321,6 @@ section.contact {
 }
 
 .intro-jumbotron {
-
   min-height: 400px;
   padding-top: $offsetTop;
   height: calc(45vh - #{$offsetTop});
@@ -385,7 +356,7 @@ section.contact {
 
       &.kotwy {
         display: none;
-        background: url('~assets/kotwy.png');
+        background: url('/kotwy.png');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center right;
@@ -394,9 +365,7 @@ section.contact {
           display: block;
         }
       }
-
     }
-
   }
 }
 
@@ -414,8 +383,7 @@ section.contact {
   }
 }
 
-.products { 
+.products {
   padding-bottom: 6rem;
 }
-
 </style>
