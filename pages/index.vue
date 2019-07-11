@@ -118,34 +118,34 @@ export default {
         {
           name: 'Akcesoria do okien',
           description: 'Idealna do okien',
-          photo: '/kotwy.png',
+          photo: './kotwy.png',
           subproducts: [
             {
               name: 'Kotwy do montażu PCV',
               description: 'Idealna do okien',
-              photo: '/kotwy.png'
+              photo: './kotwy.png'
             },
             {
               name: 'Kotwy do okien',
               description: 'Idealna do okien',
-              photo: '/kotwy.png'
+              photo: './kotwy.png'
             },
             {
               name: 'Kotwy do drewna',
               description: 'Idealna do okien',
-              photo: '/kotwy.png'
+              photo: './kotwy.png'
             }
           ]
         },
         {
           name: 'Kołki montażowe',
           description: 'Idealna do okien',
-          photo: '/kolki.png'
+          photo: './kolki.png'
         },
         {
           name: 'Dyble',
           description: 'Idealna do okien',
-          photo: '/dyble.jpg'
+          photo: './dyble.jpg'
         },
         {
           name: 'Akcesoria do mebli',
