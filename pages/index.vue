@@ -145,12 +145,11 @@ export default {
         {
           name: 'Dyble',
           description: 'Idealna do okien',
-          photo: '/kotwy.png'
+          photo: '/dyble.jpg'
         },
         {
           name: 'Akcesoria do mebli',
-          description: 'Idealna do okien',
-          photo: '/kotwy.png'
+          description: 'Idealna do okien'
         }
       ]
     }
