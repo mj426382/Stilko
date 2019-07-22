@@ -1,5 +1,5 @@
 <template>
-  <div class="builder">
+  <div>
     <section id="home" class="container-margin intro-jumbotron">
       <b-row class="header-bg">
         <b-col xs12>
@@ -7,9 +7,93 @@
             <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo" />
             <div>
               <span class="title">STILKO</span>
-              <p class="logo__description">już wkrótce</p>
+              <p class="logo__description">i wszystko w metalu</p>
             </div>
           </div>
+        </b-col>
+      </b-row>
+    </section>
+
+    <section class="container-margin products">
+      <nuxt-link to="#products" id="products" class="section-header">Produkty</nuxt-link>
+      <b-row>
+        <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
+          <ProductWrapper
+            :name="item.name"
+            :photo="item.photo"
+            :description="item.description"
+            :subproducts="item.subproducts"
+          />
+        </b-col>
+      </b-row>
+    </section>
+
+    <section class="padding--y container-margin about">
+      <nuxt-link class="section-header" to="#about" id="about">O nas</nuxt-link>
+      <b-row>
+        <b-col class="left-cover" xs12 sm6 md4>
+          <!-- hidden on mobile -->
+        </b-col>
+        <b-col class="content flex" xs12 sm6 md4>
+          <div>
+            <p>Produkujemy kotwy montażowe do okien i drzwi PCV, drewnianych oraz aluminiowych. Kotwy wykonane są z blachy ocynkowanej o grubości 1,25 mm lub 1,50 mm. Posiadamy kotwy montażowe do wszystkich obecnych na rynku profili PCV, jak również do profili aluminiowych. Do montażu okien i drzwi drewnianych oferujemy kotwy wbijane. Wykonujemy kotwy pod indywidualne zamówienie klienta.</p>
+          </div>
+        </b-col>
+        <b-col class="right-cover" xs12 sm6 md4>
+          <!-- hidden on sm -->
+        </b-col>
+      </b-row>
+    </section>
+
+    <section class="contact" id="contact">
+      <b-row>
+        <b-col class="contact" md6>
+          <div class="contact-form--wrapper">
+            <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
+            <p class="contact--description">Napisz do nas maila</p>
+            <div class="contact--form">
+              <input
+                v-model.trim="formName"
+                type="text"
+                class="contact--input"
+                placeholder="Imie i nazwisko"
+              />
+              <input
+                v-model.trim="formEmail"
+                type="email"
+                class="contact--input"
+                placeholder="Adres email"
+              />
+              <textarea
+                v-model.trim="formMessage"
+                class="contact--input"
+                rows="5"
+                placeholder="Wiadomość"
+              />
+              <button class="contact--submit">Wyślij</button>
+            </div>
+          </div>
+          <b-row class="tile--wrapper">
+            <b-col class="tile" xs6>
+              <a href="tel: +48 124 456 789">
+                <div class="icon">
+                  <img src="~/assets/ph.svg" alt="Telefon" />
+                </div>
+                <span>+48 124 456 789</span>
+              </a>
+            </b-col>
+            <b-col class="tile" xs6>
+              <a>
+                <div class="icon">
+                  <img src="~/assets/localization.svg" alt="Lokalizacja" />
+                </div>
+                <span>Bielicha XYZ, Radom, Polska</span>
+              </a>
+            </b-col>
+          </b-row>
+        </b-col>
+        <b-col class="map" md6>
+          <img src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png" />
         </b-col>
       </b-row>
     </section>
@@ -21,7 +105,6 @@ import Logo from '~/components/Logo.vue'
 import ProductWrapper from '~/components/ProductWrapper.vue'
 
 export default {
-  layout: 'build',
   components: {
     Logo,
     ProductWrapper
@@ -75,16 +158,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-.builder {
-  width: 100vw;
-  height: 100vh;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(#ccc, #fff);
-}
-
 .logo {
   width: 30px;
   height: 30px;
@@ -248,12 +321,11 @@ section.contact {
 
 .intro-jumbotron {
   min-height: 400px;
-  // padding-top: $offsetTop;
+  padding-top: $offsetTop;
   height: calc(45vh - #{$offsetTop});
   display: flex;
   justify-content: center;
-  // background: linear-gradient(#ccc, #fff);
-  // width: 80vw;
+  background: linear-gradient(#ccc, #fff);
 
   .row {
     height: 100%;
