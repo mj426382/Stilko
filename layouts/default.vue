@@ -18,9 +18,9 @@
       <b-navbar-nav class="ml-auto">
 
         <b-navbar-nav>
-          <b-nav-item href="#home" v-scroll-to="'#home'">Home</b-nav-item>
-          <b-nav-item href="#products" v-scroll-to="'#products'">Produkty</b-nav-item>          
-          <b-nav-item href="#about" v-scroll-to="'#about'">O nas</b-nav-item>
+          <b-nav-item :class="{'hovered': whiteBackgroundNav}" href="#home" v-scroll-to="'#home'">Home</b-nav-item>
+          <b-nav-item :class="{'hovered': whiteBackgroundNav}" href="#products" v-scroll-to="'#products'">Produkty</b-nav-item>          
+          <b-nav-item :class="{'hovered': whiteBackgroundNav}" href="#about" v-scroll-to="'#about'">O nas</b-nav-item>
         </b-navbar-nav>
 
         <!-- <b-nav-item-dropdown right> -->
@@ -45,6 +45,17 @@
     return window.scrollY >= 100;
   }
 
+  /**
+   * 
+   * Kotwy montażowe
+   * Kolki montazowe
+   * Dyble
+   * Akcesoria do mebli
+   * 
+   *  Opis pod kołki od razu
+   *  Opis pod dyble od razu
+   */
+
   export default {
     data () {
       return {
@@ -65,15 +76,9 @@
 
 <style lang="scss">
 
-  .brand {
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .5s;
-    cursor: pointer;
-
-    &.showed {
-      opacity: 1;
-      pointer-events: initial;
+  .hovered {
+    .nav-link{
+      color: #000 !important;
     }
   }
 
@@ -83,7 +88,42 @@
 
      .logo {
        margin-right: 15px;
+
+       &__description {
+         color: #ddd;
+       }
      }
+
+     .title {
+       color: #fff;
+     }
+
+  }
+
+  .brand {
+    pointer-events: none;
+    transition: opacity .5s;
+    opacity: 1;
+    cursor: pointer;
+
+    &.showed {
+      pointer-events: initial;
+
+      .logo--wrapper-special {
+
+     .logo {
+
+       &__description {
+         color: #333;
+       }
+     }
+
+     .title {
+       color: #000;
+     }
+
+  }
+    }
   }
 
   .navbar{
@@ -97,16 +137,33 @@
     transition: background-color .6s, box-shadow .6s;
     will-change: background-color, box-shadow;
 
+    display: block;
+
     .navbar-brand {
       font-family: 'Ubuntu';
     }
 
-    &.white-bg {
-      background: #fff;
-      -webkit-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+    background: #595959;
+    -webkit-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
       -moz-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
       box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+
+    &.white-bg {
+      background: #fff;
     }
+
+    .navbar-nav {
+      .nav-item {
+        .nav-link {
+          color: #000;
+        }
+      }
+    }
+    
+  }
+
+  .nav-link {
+    color: #fff;
   }
 
   // .main-content {
@@ -135,6 +192,10 @@
         padding: 0 15px;
         letter-spacing: 2px;
 
+        .nav-link {
+          color: #fff;
+        }
+
         &.special-link {
           border: 2px solid $colGreen;
           letter-spacing: initial;
@@ -145,7 +206,11 @@
           font-size: .85rem;
           transition: border .5s, padding .4s;
           position: relative;
-          color: #fff;
+          color: #000;
+
+          .nav-link {
+            color: #000;
+          }
 
           &:before {
             content: '';

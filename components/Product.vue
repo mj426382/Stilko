@@ -9,7 +9,7 @@
       <img v-if="photo" :src="photo" :alt="name" />
     </div>
     <h4 class="name">{{name}}</h4>
-    <!-- <p class="description">{{description}}</p> -->
+    <p class="description">{{description}}</p>
   </div>
 </template>
 
@@ -44,11 +44,8 @@ export default {
   display: block;
   cursor: pointer;
 
-  &.has-subproducts {
-  }
-
   .photo {
-    background: #ddd;
+    // background: #ddd;
     margin-bottom: 16px;
 
     &.no-photo {

@@ -1,14 +1,82 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="118px" height="122px" viewBox="0 0 118 122" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Untitled 2</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Untitled" transform="translate(1.000000, 1.000000)" fill="#000000" fill-rule="nonzero" stroke="#000000">
-            <path d="M38.1275159,50.3623956 L38.1275159,80.3623956 L68.1275159,80.3623956 C73.6503634,80.3623956 78.1275159,75.8852431 78.1275159,70.3623956 L78.1275159,40.3623956 L48.1275159,40.3623956 C42.6046684,40.3623956 38.1275159,44.8395481 38.1275159,50.3623956 Z" id="Path"></path>
-            <path d="M77.6960387,22.2087484 L32.097935,22.2087484 C26.5750875,22.2087484 22.097935,26.6859009 22.097935,32.2087484 L22.097935,80.3623956 L10,80.3623956 C4.4771525,80.3623956 -3.97643663e-15,75.8852431 -7.10542736e-15,70.3623956 L1.77635684e-15,10.4377726 C1.10000309e-15,4.91492513 4.4771525,0.437772629 10,0.437772629 L67.6960387,0.437772629 C73.2188862,0.437772629 77.6960387,4.91492513 77.6960387,10.4377726 L77.6960387,22.2087484 Z" id="Path-2"></path>
-            <path d="M115.696038,61.7709767 L70.097934,61.7709767 C64.5750865,61.7709767 60.097934,66.2481292 60.097934,71.7709767 L60.097934,119.924624 L47.999999,119.924624 C42.4771515,119.924624 37.999999,115.447472 37.999999,109.924624 L37.999999,50.000001 C37.999999,44.4771535 42.4771515,40.000001 47.999999,40.000001 L105.696038,40.000001 C111.218885,40.000001 115.696038,44.4771535 115.696038,50.000001 L115.696038,61.7709767 Z" id="Path-2" transform="translate(76.848018, 79.962313) rotate(180.000000) translate(-76.848018, -79.962313) "></path>
-        </g>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="118px"
+   height="122px"
+   viewBox="0 0 118 122"
+   version="1.1"
+   id="svg4723"
+   sodipodi:docname="logo_3.svg"
+   inkscape:version="0.92.4 (f8dce91, 2019-08-02)">
+  <metadata
+     id="metadata4727">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Untitled 2</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1855"
+     inkscape:window-height="1056"
+     id="namedview4725"
+     showgrid="false"
+     inkscape:zoom="3.8688525"
+     inkscape:cx="40.520649"
+     inkscape:cy="37.836071"
+     inkscape:window-x="1345"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Untitled" />
+  <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4711">Untitled 2</title>
+  <desc
+     id="desc4713">Created with Sketch.</desc>
+  <defs
+     id="defs4715" />
+  <g
+     id="Page-1"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd">
+    <g
+       id="Untitled"
+       transform="translate(1.000000, 1.000000)"
+       fill="#000000"
+       fill-rule="nonzero"
+       stroke="#000000">
+      <path
+         d="M38.1275159,50.3623956 L38.1275159,80.3623956 L68.1275159,80.3623956 C73.6503634,80.3623956 78.1275159,75.8852431 78.1275159,70.3623956 L78.1275159,40.3623956 L48.1275159,40.3623956 C42.6046684,40.3623956 38.1275159,44.8395481 38.1275159,50.3623956 Z"
+         id="Path"
+         style="fill:#c30000;fill-opacity:1;stroke:#c30000;stroke-opacity:1" />
+      <path
+         d="M 81.831632,27.37824 H 36.233528 c -5.522847,0 -10,4.477152 -10,10 V 85.531887 H 14.135593 c -5.5228472,0 -9.9999997,-4.477152 -9.9999997,-10 V 15.607264 c 0,-5.522847 4.4771525,-9.9999998 9.9999997,-9.9999998 h 57.696039 c 5.522847,0 10,4.4771528 10,9.9999998 z"
+         id="Path-2"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m 33.605931,91.691785 h 45.598104 c 5.522847,0 10,-4.477152 10,-10 V 33.538138 h 12.097925 c 5.52285,0 10,4.477152 10,10 v 59.924622 c 0,5.52285 -4.47715,10 -10,10 H 43.605931 c -5.522847,0 -10,-4.47715 -10,-10 z"
+         id="path4719"
+         inkscape:connector-curvature="0" />
     </g>
+  </g>
 </svg>

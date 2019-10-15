@@ -15,10 +15,10 @@
     </section>
 
     <section class="container-margin products">
-      <nuxt-link to="#products" id="products" class="section-header">Produkty</nuxt-link>
+      <Subtitle index="products">Produkty</Subtitle>
       <b-row>
-        <b-col xs12 sm6 md3 v-for="item in items" :key="item.name">
-          <ProductWrapper
+        <b-col xs="12" sm="6" md="3" v-for="item in items" :key="item.name">
+          <Product
             :name="item.name"
             :photo="item.photo"
             :description="item.description"
@@ -28,26 +28,9 @@
       </b-row>
     </section>
 
-    <section class="padding--y container-margin about">
-      <nuxt-link class="section-header" to="#about" id="about">O nas</nuxt-link>
-      <b-row>
-        <b-col class="left-cover" xs12 sm6 md4>
-          <!-- hidden on mobile -->
-        </b-col>
-        <b-col class="content flex" xs12 sm6 md4>
-          <div>
-            <p>Produkujemy kotwy montażowe do okien i drzwi PCV, drewnianych oraz aluminiowych. Kotwy wykonane są z blachy ocynkowanej o grubości 1,25 mm lub 1,50 mm. Posiadamy kotwy montażowe do wszystkich obecnych na rynku profili PCV, jak również do profili aluminiowych. Do montażu okien i drzwi drewnianych oferujemy kotwy wbijane. Wykonujemy kotwy pod indywidualne zamówienie klienta.</p>
-          </div>
-        </b-col>
-        <b-col class="right-cover" xs12 sm6 md4>
-          <!-- hidden on sm -->
-        </b-col>
-      </b-row>
-    </section>
-
     <section class="contact" id="contact">
-      <b-row>
-        <b-col class="contact" md6>
+        <b-col class="contact" xs="12" sm="12" md="6">
+
           <div class="contact-form--wrapper">
             <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
             <p class="contact--description">Napisz do nas maila</p>
@@ -73,8 +56,9 @@
               <button class="contact--submit">Wyślij</button>
             </div>
           </div>
+
           <b-row class="tile--wrapper">
-            <b-col class="tile" xs6>
+            <b-col class="tile" sm="12" md="6">
               <a href="tel: +48 124 456 789">
                 <div class="icon">
                   <img src="~/assets/ph.svg" alt="Telefon" />
@@ -82,7 +66,7 @@
                 <span>+48 124 456 789</span>
               </a>
             </b-col>
-            <b-col class="tile" xs6>
+            <b-col class="tile" sm="12" md="6">
               <a>
                 <div class="icon">
                   <img src="~/assets/localization.svg" alt="Lokalizacja" />
@@ -92,22 +76,31 @@
             </b-col>
           </b-row>
         </b-col>
-        <b-col class="map" md6>
-          <img src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png" />
+        <b-col class="map" xs="12" sm="12" md="6">
+          <div>
+            <Subtitle index="o-nas">O nas</Subtitle>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum mollis luctus. Sed pretium est risus, non viverra quam molestie sit amet. Suspendisse at ligula venenatis, tincidunt ligula et, rhoncus sapien. Nunc sit amet venenatis metus. Vestibulum pulvinar orci eget venenatis bibendum. Aliquam non ullamcorper elit. Donec eu ultrices lorem. Nullam pellentesque ac lacus sit amet volutpat. Ut eu risus sagittis, mollis risus et, ullamcorper elit. Integer id massa dui. 
+          </div>
+          <div class="map-wrapper">
+            <img 
+              width="80%"
+              src="https://www.hoothemes.com/wp-content/uploads/2015/05/20150506010146.png" />
+          </div>
         </b-col>
-      </b-row>
     </section>
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
-import ProductWrapper from '~/components/ProductWrapper.vue'
+import Product from '~/components/Product.vue'
+import Subtitle from '~/components/Subtitle.vue'
 
 export default {
   components: {
     Logo,
-    ProductWrapper
+    Product,
+    Subtitle
   },
   data() {
     return {
@@ -116,26 +109,9 @@ export default {
       formMessage: '',
       items: [
         {
-          name: 'Akcesoria do okien',
-          description: 'Idealna do okien',
-          photo: './kotwy.png',
-          subproducts: [
-            {
-              name: 'Kotwy do montażu PCV',
-              description: 'Idealna do okien',
-              photo: './kotwy.png'
-            },
-            {
-              name: 'Kotwy do okien',
-              description: 'Idealna do okien',
-              photo: './kotwy.png'
-            },
-            {
-              name: 'Kotwy do drewna',
-              description: 'Idealna do okien',
-              photo: './kotwy.png'
-            }
-          ]
+          name: 'Kotwy montażowe',
+          description: 'Kołki szybki montaż - dostępne w różnych rozmiarach',
+          photo: './kotwy.png'
         },
         {
           name: 'Kołki montażowe',
@@ -144,12 +120,12 @@ export default {
         },
         {
           name: 'Dyble',
-          description: 'Idealna do okien',
+          description: 'Dyble metalowe do montażu okien i drzwi - dostępne w różnych rozmiarach',
           photo: './dyble.jpg'
         },
         {
           name: 'Akcesoria do mebli',
-          description: 'Idealna do okien'
+          description: 'Produkujemy akcesoria do mebli między innymi zawiasy, rolki, haki, wieszaki...'
         }
       ]
     }
@@ -175,13 +151,20 @@ export default {
     align-items: center;
 
     .logo {
-      width: 150px;
-      height: 150px;
-      margin-right: 25px;
+      display: none;
+      @media screen and (min-width: 980px) {
+        width: 150px;
+        height: 150px;
+        margin-right: 25px;
+      }
     }
 
     > div {
+      display: none; 
       margin-left: 15px;
+      @media screen and (min-width: 980px) {
+        display: block;
+      }
 
       .title {
         font-size: 10rem;
@@ -218,7 +201,7 @@ section.contact {
   justify-content: center;
 
   &--wrapper {
-    padding-top: 30px;
+    padding: 30px 0;
   }
 
   span {
@@ -260,7 +243,10 @@ section.contact {
     }
 
     .contact--form {
-      padding: 0 4.3rem;
+      padding: 0 2.3rem;
+      @media screen and (min-width: 980px) {
+        padding: 0 4.3rem;
+      }
 
       .contact--input {
         width: 100%;
@@ -320,12 +306,18 @@ section.contact {
 }
 
 .intro-jumbotron {
-  min-height: 400px;
+  
   padding-top: $offsetTop;
-  height: calc(45vh - #{$offsetTop});
-  display: flex;
   justify-content: center;
-  background: linear-gradient(#ccc, #fff);
+  background: #595959;
+
+  height: 100px;
+  @media screen and (min-width: 980px) {
+    min-height: 400px;
+    height: calc(45vh - #{$offsetTop});
+    display: flex;
+    background: linear-gradient(#595959, #fff);
+  }
 
   .row {
     height: 100%;
@@ -372,17 +364,34 @@ section.contact {
   padding-bottom: 6rem;
 }
 
-.contact {
-  .row {
+#contact {
     display: flex;
+    flex-wrap: wrap;
 
     > div {
-      width: 50%;
+      @media screen and (min-width: 980px) {
+        width: 50%;
+      }
     }
-  }
+
+    .map {
+      order: -1;
+      padding-bottom: 3rem;
+      @media screen and (min-width: 980px) {
+        order: 2;
+      }
+
+      div.map-wrapper {
+        padding-top: 3rem;
+        text-align: center;
+      }
+    }
 }
 
 .products {
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
+  @media screen and (min-width: 980px) {
+    padding-bottom: 6rem;
+  }
 }
 </style>
