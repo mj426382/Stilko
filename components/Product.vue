@@ -57,6 +57,15 @@ export default {
     img {
       width: 100%;
       height: 320px;
+      @media screen and (min-width: 576px) {
+        height: 220px;
+      }
+      @media screen and (min-width: 768px) {
+        height: 170px;
+      }
+      @media screen and (min-width: 1300px) {
+        height: 320px;
+      }
     }
   }
 

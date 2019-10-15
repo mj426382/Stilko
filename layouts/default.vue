@@ -2,6 +2,7 @@
   <div>
     <b-navbar class="navbar" toggleable="lg" :class="{'white-bg': whiteBackgroundNav}">
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
     <b-navbar-brand v-scroll-to="'#home'" class="brand" :class="{'showed': whiteBackgroundNav}">
       <div class="logo--wrapper-special" href="/">
         <img src="~/assets/logo_small.svg" alt="logo stilko" class="logo"/>
@@ -101,6 +102,9 @@
   }
 
   .brand {
+    @media (min-width: 980px) {
+      display: none;
+    }
     pointer-events: none;
     transition: opacity .5s;
     opacity: 1;
@@ -111,18 +115,18 @@
 
       .logo--wrapper-special {
 
-     .logo {
+        .logo {
 
-       &__description {
-         color: #333;
-       }
-     }
+          &__description {
+            color: #333;
+          }
+        }
 
-     .title {
-       color: #000;
-     }
+        .title {
+          color: #000;
+        }
 
-  }
+      }
     }
   }
 
@@ -145,8 +149,15 @@
 
     background: #595959;
     -webkit-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
-      -moz-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
-      box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+    -moz-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+    box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+    
+    @media (min-width: 980px) {
+      background: transparent;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
 
     &.white-bg {
       background: #fff;

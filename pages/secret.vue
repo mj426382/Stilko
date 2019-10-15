@@ -15,7 +15,7 @@
     </section>
 
     <section class="container-margin products">
-      <Subtitle index="products">Produkty</Subtitle>
+      <Subtitle id="products">Produkty</Subtitle>
       <b-row>
         <b-col xs="12" sm="6" md="3" v-for="item in items" :key="item.name">
           <Product
@@ -34,27 +34,30 @@
           <div class="contact-form--wrapper">
             <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
             <p class="contact--description">Napisz do nas maila</p>
-            <div class="contact--form">
+            <form class="contact--form" @submit.prevent="sendEmail">
               <input
                 v-model.trim="formName"
                 type="text"
+                name="name"
                 class="contact--input"
                 placeholder="Imie i nazwisko"
               />
               <input
                 v-model.trim="formEmail"
+                name="email"
                 type="email"
                 class="contact--input"
                 placeholder="Adres email"
               />
               <textarea
                 v-model.trim="formMessage"
+                name="message"
                 class="contact--input"
                 rows="5"
                 placeholder="Wiadomość"
               />
-              <button class="contact--submit">Wyślij</button>
-            </div>
+              <button class="contact--submit" type="submit">Wyślij</button>
+            </form>
           </div>
 
           <b-row class="tile--wrapper">
@@ -78,7 +81,7 @@
         </b-col>
         <b-col class="map" xs="12" sm="12" md="6">
           <div>
-            <Subtitle index="o-nas">O nas</Subtitle>
+            <Subtitle id="o-nas">O nas</Subtitle>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum mollis luctus. Sed pretium est risus, non viverra quam molestie sit amet. Suspendisse at ligula venenatis, tincidunt ligula et, rhoncus sapien. Nunc sit amet venenatis metus. Vestibulum pulvinar orci eget venenatis bibendum. Aliquam non ullamcorper elit. Donec eu ultrices lorem. Nullam pellentesque ac lacus sit amet volutpat. Ut eu risus sagittis, mollis risus et, ullamcorper elit. Integer id massa dui. 
           </div>
           <div class="map-wrapper">
@@ -88,6 +91,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum mol
           </div>
         </b-col>
     </section>
+
   </div>
 </template>
 
@@ -107,6 +111,10 @@ export default {
       formName: '',
       formEmail: '',
       formMessage: '',
+      formDataNameOrder: JSON.stringify('COSSS'),
+      formGoogleSheetName: "responses",
+      formGoogleSend: 'stilko@gmail.com' || "",
+      formSentSuccesfully: null,
       items: [
         {
           name: 'Kotwy montażowe',
@@ -125,9 +133,41 @@ export default {
         },
         {
           name: 'Akcesoria do mebli',
-          description: 'Produkujemy akcesoria do mebli między innymi zawiasy, rolki, haki, wieszaki...'
+          description: 'Produkujemy akcesoria do mebli między innymi zawiasy, rolki, haki, wieszaki...',
+          photo: './dyble.jpg'
         }
       ]
+    }
+  },
+
+  methods: {
+    sendEmail(event) {
+
+      const url = 'https://script.google.com/macros/s/AKfycbycEP53yfqv-0hCS7a_33_KclBQ38cQ_vYPrHbfqIFBIlM6DVcf/exec'
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', url)
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+      xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            this.formSentSuccesfully = xhr.status === 200
+          } 
+      }
+
+      // url encode form data for sending as post data
+      const fieldWithValue = (field) => {
+        return `${field.replace('form', '').toLowerCase()}=${this[field]}`
+      }
+
+      const encoded = [
+        fieldWithValue('formName'),
+        fieldWithValue('formEmail'),
+        fieldWithValue('formMessage'),
+        fieldWithValue('formDataNameOrder'),
+        fieldWithValue('formGoogleSheetName'),
+        fieldWithValue('formGoogleSend')
+      ].join('&')
+
+      xhr.send(encoded);
     }
   }
 }
