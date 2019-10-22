@@ -124,7 +124,7 @@ export default {
       formMessage: '',
       formDataNameOrder: JSON.stringify('COSSS'),
       formGoogleSheetName: "responses",
-      formGoogleSendEmail: 'filip@newfantastic.com' || "",
+      formGoogleSendEmail: 'biuro.stilko@gmail.com' || "",
       formSentSuccesfully: null,
       items: [
         {
