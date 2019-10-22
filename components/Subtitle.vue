@@ -1,7 +1,7 @@
 <template functional>
   <nuxt-link
-    :to="`#${props.index}`"
-    :id="props.index"
+    :to="`#${props.id}`"
+    :id="props.id"
     class="section-header"
   >
     <slot/>

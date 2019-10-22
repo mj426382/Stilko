@@ -103,7 +103,7 @@
 
   .brand {
     @media (min-width: 980px) {
-      display: none;
+      // display: none;
     }
     pointer-events: none;
     transition: opacity .5s;
@@ -112,6 +112,9 @@
 
     &.showed {
       pointer-events: initial;
+      @media (min-width: 980px) {
+        display: block;
+      }
 
       .logo--wrapper-special {
 
@@ -142,6 +145,9 @@
     will-change: background-color, box-shadow;
 
     display: block;
+    @media screen and (min-width: 980px) {
+      display: flex;
+    }
 
     .navbar-brand {
       font-family: 'Ubuntu';

@@ -42,7 +42,7 @@ export default {
 <style lang="scss" scoped>
 .product {
   display: block;
-  cursor: pointer;
+  // cursor: pointer;
 
   .photo {
     // background: #ddd;
