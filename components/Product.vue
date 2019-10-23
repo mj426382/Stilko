@@ -5,8 +5,8 @@
     :class="{'has-subproducts': subproducts && subproducts.length > 0}"
     class="product"
   >
-    <div class="photo" :class="{'no-photo': !photo}">
-      <img v-if="photo" :src="photo" :alt="name" />
+    <div class="photo" :class="{'no-photo': !photo, 'special': special }">
+      <img v-if="photo" :src="photo" :alt="name"/>
     </div>
     <h4 class="name">{{name}}</h4>
     <p class="description">{{description}}</p>
@@ -31,6 +31,10 @@ export default {
     },
     subproducts: {
       type: Array
+    },
+    special: {
+      type: Boolean,
+      default: false
     }
   },
   components: {
@@ -66,7 +70,17 @@ export default {
       @media screen and (min-width: 1300px) {
         height: 320px;
       }
+
     }
+
+    &.special {
+      display: flex;
+      align-items: center;
+        img {
+          width: 70%;
+        }
+
+      }
   }
 
   .name,

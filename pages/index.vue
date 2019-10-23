@@ -23,6 +23,7 @@
             :photo="item.photo"
             :description="item.description"
             :subproducts="item.subproducts"
+            :special="item.special || false"
           />
         </b-col>
       </b-row>
@@ -68,7 +69,7 @@
           </div>
 
           <b-row class="tile--wrapper">
-            <b-col class="tile" sm="12" md="6">
+            <b-col class="tile" sm="12" md="4">
               <a href="tel: +48 602 590 435">
                 <div class="icon">
                   <img src="~/assets/ph.svg" alt="Telefon" />
@@ -76,7 +77,7 @@
                 <span>+48 602 590 435</span>
               </a>
             </b-col>
-            <b-col class="tile" sm="12" md="6" style="text-align:center;">
+            <b-col class="tile" sm="12" md="4" style="text-align:center;">
               <a target="_blank" href="https://www.google.com/maps/place/Bielicha+92A,+26-601+Bielicha/@51.4076871,21.0898646,13.25z/data=!4m8!1m2!2m1!1sBielicha+92a+26-600+Radom!3m4!1s0x471859a88238ea31:0x302ad0e8848c83b9!8m2!3d51.4174221!4d21.084609">
                 <div class="icon">
                   <img src="~/assets/localization.svg" alt="Lokalizacja" />
@@ -84,7 +85,16 @@
                 <span>Bielicha 92a<br>26-600 Radom<br>Polska</span>
               </a>
             </b-col>
+            <b-col class="tile" sm="12" md="4" style="text-align:center;">
+              <a target="_blank" href="mailto:biuro.stilko@gmail.com">
+                <div class="icon">
+                  <img src="~/assets/email.svg" alt="Email" />
+                </div>
+                <span>biuro.stilko@gmail.com</span>
+              </a>
+            </b-col>
           </b-row>
+
         </b-col>
         <b-col class="map" xs="12" sm="12" md="6">
           <div>
@@ -129,8 +139,9 @@ export default {
       items: [
         {
           name: 'Kotwy montażowe',
-          description: 'Do okien plastikowych, drewnianych, aluminiowych. Wykonanie z blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Produkujemy kotwy do wszystkich systemów PVC. I kotwy obrotowe do systemów: ALUPLAST, IGLO, SCHUCO, REHAU. Realizujemy indywidualne projekty.',
-          photo: './kotwy.png'
+          description: 'Kotwy montażowe do okien plastikowych(PVC,); okien drewnianych; okien aluminiowych. Wykonanie z blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Produkujemy kotwy do wszystkich systemów PVC tj.: ALUPLAST, VEKA, SCHUCO, REHAU, KBE, TROCAL, SALAMANDER, GEALAN, THYSSEN, DECEUNINCK, KOMERLING, BRUGMANN, DECCO, AWANGARDE. I kotwy obrotowe do systemów: ALUPLAST, IGLO, SCHUCO, REHAU. Realizujemy indywidualne projekty.',
+          photo: './kotwa.png',
+          special: true
         },
         {
           name: 'Kołki montażowe',
