@@ -144,13 +144,21 @@
     transition: background-color .6s, box-shadow .6s;
     will-change: background-color, box-shadow;
 
-    display: block;
-    @media screen and (min-width: 980px) {
+    // display: block;
+    // @media screen and (min-width: 980px) {
       display: flex;
+    // }
+
+    @media screen and (max-width: 979px) {
+      justify-content: flex-start;
     }
 
     .navbar-brand {
       font-family: 'Ubuntu';
+
+      @media screen and (max-width: 330px) {
+        margin-right: 0 !important;
+      }
     }
 
     background: #595959;

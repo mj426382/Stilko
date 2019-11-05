@@ -217,8 +217,8 @@ export default {
   font-size: .8rem;
 }
 .logo {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 
   &__description {
     font-size: 0.9rem;
