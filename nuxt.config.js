@@ -16,11 +16,15 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'STILKO - Producent kotew montażowych do okien i drzwi',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'Producnt kotew montażowych do okien oraz drzwi z trzydziestoletnim doświadczeniem. Stilko to grupa pasjonatów ceniących sobie jakość.' },
+      { hid: 'og:description', name: 'og:description', content: 'Producnt kotew montażowych do okien oraz drzwi z trzydziestoletnim doświadczeniem. Stilko to grupa pasjonatów ceniących sobie jakość.' },
+      { hid: 'og:type', name: 'og:type', content: 'website' },
+      { hid: 'og:title', name: 'og:title', content: 'STILKO - I wszystko w metalu' },
+      { hid: 'og:site_name', name: 'og:site_name', content: 'STILKO - I wszystko w metalu' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },

@@ -140,7 +140,7 @@ export default {
         {
           name: 'Kotwy montażowe',
           description: 'Kotwy montażowe do okien plastikowych(PVC,); okien drewnianych; okien aluminiowych. Wykonanie z blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Produkujemy kotwy do wszystkich systemów PVC tj.: ALUPLAST, VEKA, SCHUCO, REHAU, KBE, TROCAL, SALAMANDER, GEALAN, THYSSEN, DECEUNINCK, KOMERLING, BRUGMANN, DECCO, AWANGARDE. I kotwy obrotowe do systemów: ALUPLAST, IGLO, SCHUCO, REHAU. Realizujemy indywidualne projekty.',
-          photo: './kotwa.png',
+          photo: './nowe-kotwy.jpg',
           special: true
         },
         {
