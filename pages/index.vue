@@ -78,11 +78,11 @@
               </a>
             </b-col>
             <b-col class="tile" sm="12" md="4" style="text-align:center;">
-              <a target="_blank" href="https://www.google.com/maps/place/Bielicha+92A,+26-601+Bielicha/@51.4076871,21.0898646,13.25z/data=!4m8!1m2!2m1!1sBielicha+92a+26-600+Radom!3m4!1s0x471859a88238ea31:0x302ad0e8848c83b9!8m2!3d51.4174221!4d21.084609">
+              <a target="_blank" href="">
                 <div class="icon">
                   <img src="~/assets/localization.svg" alt="Lokalizacja" />
                 </div>
-                <span>Bielicha 92a<br>26-600 Radom<br>Polska</span>
+                <span>ul. Gołębia 4<br>26-601 Bielicha<br>Polska</span>
               </a>
             </b-col>
             <b-col class="tile" sm="12" md="4" style="text-align:center;">
@@ -102,10 +102,11 @@
             {{ aboutUs }}
           </div>
           <div class="map-wrapper">
-            <a target="_blank" href="https://www.google.com/maps/place/Bielicha+92A,+26-601+Bielicha/@51.4076871,21.0898646,13.25z/data=!4m8!1m2!2m1!1sBielicha+92a+26-600+Radom!3m4!1s0x471859a88238ea31:0x302ad0e8848c83b9!8m2!3d51.4174221!4d21.084609">
+            <a target="_blank" href="https://www.google.com/maps/place/STILKO+Monika+Fo%C5%82tyn/@51.4045971,21.114648,14.5z/data=!4m13!1m7!3m6!1s0x471859a88238ea31:0x302ad0e8848c83b9!2sBielicha+92A,+26-601+Bielicha!3b1!8m2!3d51.4174221!4d21.084609!3m4!1s0x47185924c62ce7c5:0xfc067ced0375085b!8m2!3d51.4173088!4d21.0845403">
               <img 
                 width="80%"
                 :src="'./map.jpeg'"
+                alt="Stilko Mapa"
               />
             </a>
           </div>
