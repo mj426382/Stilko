@@ -99,11 +99,11 @@
         <b-col class="map" xs="12" sm="12" md="6">
           <div>
             <Subtitle id="about">O nas</Subtitle>
-            {{ aboutUs }}
+            <div v-html="aboutUs" />
           </div>
           <div class="map-wrapper">
             <a target="_blank" href="https://www.google.com/maps/place/STILKO+Monika+Fo%C5%82tyn/@51.4045971,21.114648,14.5z/data=!4m13!1m7!3m6!1s0x471859a88238ea31:0x302ad0e8848c83b9!2sBielicha+92A,+26-601+Bielicha!3b1!8m2!3d51.4174221!4d21.084609!3m4!1s0x47185924c62ce7c5:0xfc067ced0375085b!8m2!3d51.4173088!4d21.0845403">
-              <img 
+              <img
                 width="80%"
                 :src="'./map.jpeg'"
                 alt="Stilko Mapa"
@@ -129,7 +129,14 @@ export default {
   },
   data() {
     return {
-      aboutUs: 'Zajmujemy sie obróbką metali od lat 90. Mamy, więc już prawie 30 lat doświadczenia! Jesteśmy grupą pasjonatów, ceniących sobie jakość. Uważamy, że świetnie wykonana praca jest najlepszą reklamą. Realizujemy również indywidualne projekty, według rządanej specyfikacji. Zapraszamy do kontaktu za pomocą formularza kontaktowego, bądź telefonu.',
+      aboutUs: 'Jesteśmy rodzinną firmą produkcyjną z 30 letnim doświadczeniem w obróbce metali. \n' +
+          'Nasze produkty są doceniane przez naszych Klientów z którymi współpracujemy od wielu lat, dzięki wysokiej jakości wykonania kotew montażowych, kołków oraz metalowych akcesoriów do mebli, gwarantujemy zadowolenie i długą żywotność produktów. \n' +
+          'Firma STILKO jako producent kotwy w swojej ofercie posiada pozycje tj.: kotwa do okien PCV, kotwa do okien aluminiowych, kotwa do drewna - kotwa wbijana, kotwa obrotowa. \n' +
+          'Montaż kotwy dzięki odpowiednio rozmieszczonym otworom jest przyjemniejszy dla montażystów oraz zapewnia lepsze trzymanie okna i drzwi.\n' +
+          'Cenimy sobie jakość i przyjazną współpracę. \n' +
+          '<br/><u>Uważamy, że świetnie wykonana praca jest najlepszą reklamą.</u>\n' +
+          '<br/><br/>Realizujemy również indywidualne projekty, według pożądanej specyfikacji. \n' +
+          'Zapraszamy do kontaktu za pomocą telefonu lub formularza kontaktowego. ',
       formName: '',
       formEmail: '',
       formMessage: '',
@@ -140,18 +147,18 @@ export default {
       items: [
         {
           name: 'Kotwy montażowe',
-          description: 'Kotwy montażowe do okien plastikowych(PVC,); okien drewnianych; okien aluminiowych. Wykonanie z blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Produkujemy kotwy do wszystkich systemów PVC tj.: ALUPLAST, VEKA, SCHUCO, REHAU, KBE, TROCAL, SALAMANDER, GEALAN, THYSSEN, DECEUNINCK, KOMERLING, BRUGMANN, DECCO, AWANGARDE. I kotwy obrotowe do systemów: ALUPLAST, IGLO, SCHUCO, REHAU. Realizujemy indywidualne projekty.',
+          description: 'Kotwy do okien PCV, okien drewnianych, okien aluminiowych. Jako producent kotew używamy sprawdzonej jakości blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Wytwarzamy również kotwy okienne długie. Produkujemy kotwy do wszystkich systemów okiennych tj.: Aluplast, Veka, Schuco, Rehau, KBE, Trocal, Salamander, Gealan, Thyssen, Deceuninck, Kommerling, Brugmann, Decco, Avantgarde. Kotwy obrotowe do systemów: Aluplast, Iglo, Schuco, Rehau. Realizujemy również indywidualne projekty.',
           photo: './nowe-kotwy.jpg',
           special: true
         },
         {
           name: 'Kołki montażowe',
-          description: 'Kołki szybki montaż - dostępne w różnych rozmiarach',
+          description: 'Kołki szybki montaż 8x45, 8x60, 8x80 oraz wiele innych',
           photo: './kolki.png'
         },
         {
-          name: 'Dyble',
-          description: 'Dyble metalowe do montażu okien i drzwi - dostępne w różnych rozmiarach',
+          name: 'Dyble metalowe',
+          description: 'Dyble montażowe do okien i drzwi - dostępne w różnych rozmiarach',
           photo: './dyble.jpg'
         },
         {
@@ -184,7 +191,7 @@ export default {
       xhr.onreadystatechange = () => {
           if (xhr.readyState === 4 && xhr.status === 200) {
             this.formSentSuccesfully = xhr.status === 200
-          } 
+          }
           if (xhr.readyState === 4) {
             this.isSending = false
           }
@@ -243,7 +250,7 @@ export default {
     }
 
     > div {
-      display: none; 
+      display: none;
       margin-left: 15px;
       @media screen and (min-width: 980px) {
         display: block;
@@ -395,7 +402,7 @@ section.contact {
 }
 
 .intro-jumbotron {
-  
+
   padding-top: $offsetTop;
   justify-content: center;
   background: #595959;
