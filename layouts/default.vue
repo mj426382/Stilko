@@ -175,6 +175,9 @@
 
     &.white-bg {
       background: #fff;
+      -webkit-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+      -moz-box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
+      box-shadow: 0px 8px 23px -9px rgba(0,0,0,0.53);
     }
 
     .navbar-nav {
