@@ -30,7 +30,7 @@
           <b-dropdown-item href="#">Kotwy 1</b-dropdown-item>
           <b-dropdown-item href="#">Kotwy 2</b-dropdown-item>
         </b-nav-item-dropdown> -->
-        <b-nav-item class="special-link" v-scroll-to="'#contact'" href="#contact">Kontakt</b-nav-item>
+        <b-nav-item class="special-link" v-scroll-to="'#ct-form'" href="#ct-form">Kontakt</b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>

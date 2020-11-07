@@ -32,7 +32,7 @@
     <section class="contact" id="contact">
         <b-col class="contact" xs="12" sm="12" md="6">
 
-          <div class="contact-form--wrapper" v-if="formSentSuccesfully !== true">
+          <div class="contact-form--wrapper" id="ct-form" v-if="formSentSuccesfully !== true">
             <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
             <p class="contact--description">Napisz do nas maila</p>
             <form class="contact--form" @submit.prevent="sendEmail">
@@ -63,7 +63,7 @@
               <button class="contact--submit" type="submit" :disabled="!canSendEmail || isSending">Wyślij</button>
             </form>
           </div>
-          <div class="contact-form--wrapper" v-else>
+          <div class="contact-form--wrapper" id="ct-form" v-else>
             <h2 class="contact--header">Dziękujemy za wysłanie maila!</h2>
             <p class="contact--description">Skontaktujemy sie z Panem/Panią jak najszybciej</p>
           </div>
