@@ -30,89 +30,97 @@
     </section>
 
     <section class="contact" id="contact">
-        <b-col class="contact" xs="12" sm="12" md="6">
+      <b-col class="contact" xs="12" sm="12" md="6">
+        <div
+          class="contact-form--wrapper"
+          id="ct-form"
+          v-if="formSentSuccesfully !== true"
+        >
+          <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
+          <p class="contact--description">Napisz do nas maila</p>
+          <form class="contact--form" @submit.prevent="sendEmail">
+            <input
+              v-model.trim="formName"
+              type="text"
+              name="name"
+              class="contact--input"
+              placeholder="Imie i nazwisko"
+            />
+            <span class="contact-field__info">Minimum 5 znaków</span>
+            <input
+              v-model.trim="formEmail"
+              name="email"
+              type="email"
+              class="contact--input"
+              placeholder="Adres email"
+            />
+            <span class="contact-field__info">Minimum 7 znaków</span>
+            <textarea
+              v-model.trim="formMessage"
+              name="message"
+              class="contact--input"
+              rows="5"
+              placeholder="Wiadomość"
+            />
+            <span class="contact-field__info last">Minimum 10 znaków</span>
+            <button
+              class="contact--submit"
+              type="submit"
+              :disabled="!canSendEmail || isSending"
+            >
+              Wyślij
+            </button>
+          </form>
+        </div>
+        <div class="contact-form--wrapper" id="ct-form" v-else>
+          <h2 class="contact--header">Dziękujemy za wysłanie maila!</h2>
+          <p class="contact--description">
+            Skontaktujemy sie z Panem/Panią jak najszybciej
+          </p>
+        </div>
 
-          <div class="contact-form--wrapper" id="ct-form" v-if="formSentSuccesfully !== true">
-            <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
-            <p class="contact--description">Napisz do nas maila</p>
-            <form class="contact--form" @submit.prevent="sendEmail">
-              <input
-                v-model.trim="formName"
-                type="text"
-                name="name"
-                class="contact--input"
-                placeholder="Imie i nazwisko"
-              />
-              <span class="contact-field__info">Minimum 5 znaków</span>
-              <input
-                v-model.trim="formEmail"
-                name="email"
-                type="email"
-                class="contact--input"
-                placeholder="Adres email"
-              />
-              <span class="contact-field__info">Minimum 7 znaków</span>
-              <textarea
-                v-model.trim="formMessage"
-                name="message"
-                class="contact--input"
-                rows="5"
-                placeholder="Wiadomość"
-              />
-              <span class="contact-field__info last">Minimum 10 znaków</span>
-              <button class="contact--submit" type="submit" :disabled="!canSendEmail || isSending">Wyślij</button>
-            </form>
-          </div>
-          <div class="contact-form--wrapper" id="ct-form" v-else>
-            <h2 class="contact--header">Dziękujemy za wysłanie maila!</h2>
-            <p class="contact--description">Skontaktujemy sie z Panem/Panią jak najszybciej</p>
-          </div>
-
-          <b-row class="tile--wrapper">
-            <b-col class="tile" sm="12" md="4">
-              <a href="tel: +48 602 590 435">
-                <div class="icon">
-                  <img src="~/assets/ph.svg" alt="Telefon" />
-                </div>
-                <span>+48 602 590 435</span>
-              </a>
-            </b-col>
-            <b-col class="tile" sm="12" md="4" style="text-align:center;">
-              <a target="_blank" href="">
-                <div class="icon">
-                  <img src="~/assets/localization.svg" alt="Lokalizacja" />
-                </div>
-                <span>ul. Gołębia 4<br>26-601 Bielicha<br>Polska</span>
-              </a>
-            </b-col>
-            <b-col class="tile" sm="12" md="4" style="text-align:center;">
-              <a target="_blank" href="mailto:biuro.stilko@gmail.com">
-                <div class="icon">
-                  <img src="~/assets/email.svg" alt="Email" />
-                </div>
-                <span>biuro.stilko@gmail.com</span>
-              </a>
-            </b-col>
-          </b-row>
-
-        </b-col>
-        <b-col class="map" xs="12" sm="12" md="6">
-          <div>
-            <Subtitle id="about">O nas</Subtitle>
-            <div v-html="aboutUs" />
-          </div>
-          <div class="map-wrapper">
-            <a target="_blank" href="https://www.google.com/maps/place/STILKO+Monika+Fo%C5%82tyn/@51.4045971,21.114648,14.5z/data=!4m13!1m7!3m6!1s0x471859a88238ea31:0x302ad0e8848c83b9!2sBielicha+92A,+26-601+Bielicha!3b1!8m2!3d51.4174221!4d21.084609!3m4!1s0x47185924c62ce7c5:0xfc067ced0375085b!8m2!3d51.4173088!4d21.0845403">
-              <img
-                width="80%"
-                :src="'./map.jpeg'"
-                alt="Stilko Mapa"
-              />
+        <b-row class="tile--wrapper">
+          <b-col class="tile" sm="12" md="4">
+            <a href="tel: +48 602 590 435">
+              <div class="icon">
+                <img src="~/assets/ph.svg" alt="Telefon" />
+              </div>
+              <span>+48 602 590 435</span>
             </a>
-          </div>
-        </b-col>
+          </b-col>
+          <b-col class="tile" sm="12" md="4" style="text-align: center">
+            <a target="_blank" href="">
+              <div class="icon">
+                <img src="~/assets/localization.svg" alt="Lokalizacja" />
+              </div>
+              <span>ul. Gołębia 4<br />26-601 Bielicha<br />Polska</span>
+            </a>
+          </b-col>
+          <b-col class="tile" sm="12" md="4" style="text-align: center">
+            <a target="_blank" href="mailto:biuro@stilko.pro">
+              <div class="icon">
+                <img src="~/assets/email.svg" alt="Email" />
+              </div>
+              <span>biuro@stilko.pro</span>
+            </a>
+          </b-col>
+        </b-row>
+      </b-col>
+      <b-col class="map" xs="12" sm="12" md="6">
+        <div>
+          <Subtitle id="about">O nas</Subtitle>
+          <div v-html="aboutUs" />
+        </div>
+        <div class="map-wrapper">
+          <a
+            target="_blank"
+            href="https://www.google.com/maps/place/STILKO+Monika+Fo%C5%82tyn/@51.4045971,21.114648,14.5z/data=!4m13!1m7!3m6!1s0x471859a88238ea31:0x302ad0e8848c83b9!2sBielicha+92A,+26-601+Bielicha!3b1!8m2!3d51.4174221!4d21.084609!3m4!1s0x47185924c62ce7c5:0xfc067ced0375085b!8m2!3d51.4173088!4d21.0845403"
+          >
+            <img width="80%" :src="'./map.jpeg'" alt="Stilko Mapa" />
+          </a>
+        </div>
+      </b-col>
     </section>
-
   </div>
 </template>
 
@@ -127,27 +135,29 @@ export default {
     Product,
     Subtitle
   },
-  data() {
+  data () {
     return {
-      aboutUs: 'Jesteśmy rodzinną firmą produkcyjną z 30 letnim doświadczeniem w obróbce metali. \n' +
-          'Nasze produkty są doceniane przez naszych Klientów z którymi współpracujemy od wielu lat, dzięki wysokiej jakości wykonania kotew montażowych, kołków oraz metalowych akcesoriów do mebli, gwarantujemy zadowolenie i długą żywotność produktów. \n' +
-          'Firma STILKO jako producent kotwy w swojej ofercie posiada pozycje tj.: kotwa do okien PCV, kotwa do okien aluminiowych, kotwa do drewna - kotwa wbijana, kotwa obrotowa. \n' +
-          'Montaż kotwy dzięki odpowiednio rozmieszczonym otworom jest przyjemniejszy dla montażystów oraz zapewnia lepsze trzymanie okna i drzwi.\n' +
-          'Cenimy sobie jakość i przyjazną współpracę. \n' +
-          '<br/><u>Uważamy, że świetnie wykonana praca jest najlepszą reklamą.</u>\n' +
-          '<br/><br/>Realizujemy również indywidualne projekty, według pożądanej specyfikacji. \n' +
-          'Zapraszamy do kontaktu za pomocą telefonu lub formularza kontaktowego. ',
+      aboutUs:
+        'Producent kotew do okien, kotwy do drewna i blacha montażowa do okien. Jesteśmy rodzinną firmą produkcyjną z 30 letnim doświadczeniem w obróbce metali. \n' +
+        'Nasze produkty są doceniane przez naszych Klientów z którymi współpracujemy od wielu lat, dzięki wysokiej jakości wykonania kotew montażowych, kołków oraz metalowych akcesoriów do mebli, gwarantujemy zadowolenie i długą żywotność produktów. \n' +
+        'Firma STILKO jako producent kotwy w swojej ofercie posiada pozycje tj.: kotwa do okien PCV, kotwa do okien aluminiowych, kotwa do drewna - kotwa wbijana, kotwa obrotowa. \n' +
+        'Montaż kotwy dzięki odpowiednio rozmieszczonym otworom jest przyjemniejszy dla montażystów oraz zapewnia lepsze trzymanie okna i drzwi.\n' +
+        'Cenimy sobie jakość i przyjazną współpracę. \n' +
+        '<br/><u>Uważamy, że świetnie wykonana praca jest najlepszą reklamą.</u>\n' +
+        '<br/><br/>Realizujemy również indywidualne projekty, według pożądanej specyfikacji. \n' +
+        'Zapraszamy do kontaktu za pomocą telefonu lub formularza kontaktowego. ',
       formName: '',
       formEmail: '',
       formMessage: '',
       formDataNameOrder: JSON.stringify('COSSS'),
-      formGoogleSheetName: "responses",
-      formGoogleSendEmail: 'biuro.stilko@gmail.com' || "",
+      formGoogleSheetName: 'responses',
+      formGoogleSendEmail: 'biuro@stilko.pro' || '',
       formSentSuccesfully: null,
       items: [
         {
           name: 'Kotwy montażowe',
-          description: 'Kotwy do okien PCV, okien drewnianych, okien aluminiowych. Jako producent kotew używamy sprawdzonej jakości blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Wytwarzamy również kotwy okienne długie. Produkujemy kotwy do wszystkich systemów okiennych tj.: Aluplast, Veka, Schuco, Rehau, KBE, Trocal, Salamander, Gealan, Thyssen, Deceuninck, Kommerling, Brugmann, Decco, Avantgarde. Kotwy obrotowe do systemów: Aluplast, Iglo, Schuco, Rehau. Realizujemy również indywidualne projekty.',
+          description:
+            'Kotwy do okien PCV, okien drewnianych, okien aluminiowych. Jako producent kotew używamy sprawdzonej jakości blachy ocynkowanej grubość 1,25 mm oraz 1,50 mm. Wytwarzamy również kotwy okienne długie. Produkujemy kotwy do wszystkich systemów okiennych tj.: Aluplast, Veka, Schuco, Rehau, KBE, Trocal, Salamander, Gealan, Thyssen, Deceuninck, Kommerling, Brugmann, Decco, Avantgarde. Kotwy obrotowe do systemów: Aluplast, Iglo, Schuco, Rehau. Realizujemy również indywidualne projekty.',
           photo: './nowe-kotwy.jpg',
           special: true
         },
@@ -158,12 +168,14 @@ export default {
         },
         {
           name: 'Dyble metalowe',
-          description: 'Dyble montażowe do okien i drzwi - dostępne w różnych rozmiarach',
+          description:
+            'Dyble montażowe do okien i drzwi - dostępne w różnych rozmiarach',
           photo: './dyble.jpg'
         },
         {
           name: 'Akcesoria do mebli',
-          description: 'Produkujemy akcesoria do mebli między innymi zawiasy, rolki, haki, wieszaki...',
+          description:
+            'Produkujemy akcesoria do mebli między innymi zawiasy, rolki, haki, wieszaki...',
           photo: './meblowe.png'
         }
       ]
@@ -172,33 +184,35 @@ export default {
 
   computed: {
     canSendEmail () {
-      return !this.formSentSuccesfully
-      && this.formName.length > 5
-      && this.formEmail.length > 7
-      && /\S+@\S+\.\S+/.test(this.formEmail)
-      && this.formMessage.length > 10
+      return (
+        !this.formSentSuccesfully &&
+        this.formName.length > 5 &&
+        this.formEmail.length > 7 &&
+        /\S+@\S+\.\S+/.test(this.formEmail) &&
+        this.formMessage.length > 10
+      )
     }
   },
 
   methods: {
-    sendEmail(event) {
-
+    sendEmail (event) {
       this.isSending = true
-      const url = 'https://script.google.com/macros/s/AKfycbycEP53yfqv-0hCS7a_33_KclBQ38cQ_vYPrHbfqIFBIlM6DVcf/exec'
+      const url =
+        'https://script.google.com/macros/s/AKfycbycEP53yfqv-0hCS7a_33_KclBQ38cQ_vYPrHbfqIFBIlM6DVcf/exec'
       const xhr = new XMLHttpRequest()
       xhr.open('POST', url)
-      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
       xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            this.formSentSuccesfully = xhr.status === 200
-          }
-          if (xhr.readyState === 4) {
-            this.isSending = false
-          }
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          this.formSentSuccesfully = xhr.status === 200
+        }
+        if (xhr.readyState === 4) {
+          this.isSending = false
+        }
       }
 
       // url encode form data for sending as post data
-      const fieldWithValue = (field) => {
+      const fieldWithValue = field => {
         return `${field.replace('form', '').toLowerCase()}=${this[field]}`
       }
 
@@ -213,7 +227,7 @@ export default {
         `adresat=${this.formEmail}`
       ].join('&')
 
-      xhr.send(encoded);
+      xhr.send(encoded)
     }
   }
 }
@@ -222,7 +236,7 @@ export default {
 <style lang="scss">
 .contact-field__info {
   padding-bottom: 15px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 .logo {
   width: 50px;
@@ -361,7 +375,7 @@ section.contact {
       margin-top: 10px;
 
       &:disabled {
-        opacity: .6;
+        opacity: 0.6;
         cursor: not-allowed;
       }
     }
@@ -402,7 +416,6 @@ section.contact {
 }
 
 .intro-jumbotron {
-
   padding-top: $offsetTop;
   justify-content: center;
   background: #595959;
@@ -461,27 +474,27 @@ section.contact {
 }
 
 #contact {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 
-    > div {
-      @media screen and (min-width: 980px) {
-        width: 50%;
-      }
+  > div {
+    @media screen and (min-width: 980px) {
+      width: 50%;
+    }
+  }
+
+  .map {
+    order: -1;
+    padding-bottom: 3rem;
+    @media screen and (min-width: 980px) {
+      order: 2;
     }
 
-    .map {
-      order: -1;
-      padding-bottom: 3rem;
-      @media screen and (min-width: 980px) {
-        order: 2;
-      }
-
-      div.map-wrapper {
-        padding-top: 3rem;
-        text-align: center;
-      }
+    div.map-wrapper {
+      padding-top: 3rem;
+      text-align: center;
     }
+  }
 }
 
 .products {
