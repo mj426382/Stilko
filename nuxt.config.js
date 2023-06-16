@@ -1,13 +1,12 @@
 import pkg from './package'
 
-const routerBase =
-  process.env.DEPLOY_ENV === 'GH_PAGES'
-    ? {
-        router: {
-          base: '/'
-        }
+const routerBase = true //process.env.DEPLOY_ENV === 'GH_PAGES'
+  ? {
+      router: {
+        base: '/'
       }
-    : {}
+    }
+  : {}
 
 export default {
   mode: 'universal',
