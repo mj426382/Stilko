@@ -63,11 +63,7 @@
               placeholder="Wiadomość"
             />
             <span class="contact-field__info last">Minimum 10 znaków</span>
-            <button
-              class="contact--submit"
-              type="submit"
-              :disabled="!canSendEmail || isSending"
-            >
+            <button class="contact--submit" type="submit" :disabled="isSending">
               Wyślij
             </button>
           </form>
@@ -191,6 +187,7 @@ export default {
 
   computed: {
     canSendEmail () {
+      return true
       return (
         !this.formSentSuccesfully &&
         this.formName.length > 5 &&
@@ -212,6 +209,7 @@ export default {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           this.formSentSuccesfully = xhr.status === 200
+          window.alert('Wiadomość została wysłana')
         }
         if (xhr.readyState === 4) {
           this.isSending = false
