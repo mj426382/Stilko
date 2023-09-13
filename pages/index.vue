@@ -209,7 +209,6 @@ export default {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
           this.formSentSuccesfully = xhr.status === 200
-          window.alert('Wiadomość została wysłana')
         }
         if (xhr.readyState === 4) {
           this.isSending = false
