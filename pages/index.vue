@@ -70,14 +70,14 @@
             >
               Wyślij
             </button>
-            <p class="rodo-info">
-              Administratorem danych osobowych jest stilko, ul. Gołebia, 26-601,
-              Bielicha, Polska. Dane będą przetwarzane w celu zapewnienia
-              najwyższej jakości usług. Podanie danych jest dobrowolne, ale
-              niezbędne do przetworzenia zapytania. Osoba, której dane dotyczą,
-              ma prawo dostępu do treści swoich danych oraz ich poprawiania.
-            </p>
           </form>
+          <p>
+            Administratorem danych osobowych jest stilko, ul. Gołebia, 26-601,
+            Bielicha, Polska. Dane będą przetwarzane w celu zapewnienia
+            najwyższej jakości usług. Podanie danych jest dobrowolne, ale
+            niezbędne do przetworzenia zapytania. Osoba, której dane dotyczą, ma
+            prawo dostępu do treści swoich danych oraz ich poprawiania.
+          </p>
         </div>
         <div class="contact-form--wrapper" id="ct-form" v-else>
           <h2 class="contact--header">Dziękujemy za wysłanie maila!</h2>
