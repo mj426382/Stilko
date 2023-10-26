@@ -31,57 +31,6 @@
 
     <section class="contact" id="contact">
       <b-col class="contact" xs="12" sm="12" md="6">
-        <div
-          class="contact-form--wrapper"
-          id="ct-form"
-          v-if="formSentSuccesfully !== true"
-        >
-          <h2 class="contact--header">Złóż zamówienie / zapytanie</h2>
-          <p class="contact--description">Napisz do nas maila</p>
-          <form class="contact--form" @submit.prevent="sendEmail">
-            <input
-              v-model.trim="formName"
-              type="text"
-              name="name"
-              class="contact--input"
-              placeholder="Imie i nazwisko"
-            />
-            <span class="contact-field__info">Minimum 5 znaków</span>
-            <input
-              v-model.trim="formEmail"
-              name="email"
-              type="email"
-              class="contact--input"
-              placeholder="Adres email"
-            />
-            <span class="contact-field__info">Minimum 7 znaków</span>
-            <textarea
-              v-model.trim="formMessage"
-              name="message"
-              class="contact--input"
-              rows="5"
-              placeholder="Wiadomość"
-            />
-            <span class="contact-field__info last">Minimum 10 znaków</span>
-            <button class="contact--submit" type="submit" :disabled="isSending">
-              Wyślij
-            </button>
-          </form>
-          <p>
-            Administratorem danych osobowych jest stilko, ul. Gołebia, 26-601,
-            Bielicha, Polska. Dane będą przetwarzane w celu zapewnienia
-            najwyższej jakości usług. Podanie danych jest dobrowolne, ale
-            niezbędne do przetworzenia zapytania. Osoba, której dane dotyczą, ma
-            prawo dostępu do treści swoich danych oraz ich poprawiania.
-          </p>
-        </div>
-        <div class="contact-form--wrapper" id="ct-form" v-else>
-          <h2 class="contact--header">Dziękujemy za wysłanie maila!</h2>
-          <p class="contact--description">
-            Skontaktujemy sie z Panem/Panią jak najszybciej
-          </p>
-        </div>
-
         <b-row class="tile--wrapper">
           <b-col class="tile" sm="12" md="4">
             <a href="tel: +48 602 590 435">
